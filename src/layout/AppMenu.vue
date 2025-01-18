@@ -9,8 +9,9 @@ const model = ref([
         items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
     },
     {
-        label: 'UI Components',
+        label: 'Menu',
         items: [
+            { label: 'แผนที่นั่ง', icon: 'material-symbols:airline-seat-recline-normal', to: '/uikit/formlayout' },
             { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
             { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/uikit/input' },
             { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', class: 'rotated-icon' },
@@ -140,12 +141,14 @@ const model = ref([
 </script>
 
 <template>
-    <ul class="layout-menu">
-        <template v-for="(item, i) in model" :key="item">
-            <app-menu-item v-if="!item.separator" :item="item" :index="i"></app-menu-item>
-            <li v-if="item.separator" class="menu-separator"></li>
-        </template>
-    </ul>
+    <div>
+        <ul class="layout-menu">
+            <template v-for="(item, i) in model">
+                <app-menu-item v-if="!item.separator" :item="item" :index="i" :key="`item-${i}`"></app-menu-item>
+                <li v-if="item.separator" class="menu-separator" :key="`separator-${i}`"></li>
+            </template>
+        </ul>
+    </div>
 </template>
 
 <style lang="scss" scoped></style>
