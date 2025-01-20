@@ -12,7 +12,7 @@ const { toggleMenu, toggleDarkMode, isDarkTheme } = useLayout();
                 <i class="pi pi-bars"></i>
             </button>
             <router-link to="/" class="layout-topbar-logo">
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -28,7 +28,7 @@ const { toggleMenu, toggleDarkMode, isDarkTheme } = useLayout();
                             fill="var(--primary-color)"
                         />
                     </g> -->
-                    <image href="/demo/images/flag/pngegg.png" x="0" y="0" height="200" width="200" />
+                    <image href="/demo/images/flag/pngegg.png" x="0" y="0" height="300" width="300" />
                 </svg>
 
                 <span>SSRU_RFID</span>

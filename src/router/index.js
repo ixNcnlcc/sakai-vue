@@ -29,9 +29,19 @@ const router = createRouter({
                     component: () => import('@/views/uikit/ButtonDoc.vue')
                 },
                 {
+                    path: '/uikit/tableDoc',
+                    name: 'tableDoc',
+                    component: () => import('@/views/uikit/TableDoc.vue')
+                },
+                {
                     path: '/uikit/table',
                     name: 'table',
-                    component: () => import('@/views/uikit/TableDoc.vue')
+                    component: () => import('@/views/uikit/Table.vue')
+                },
+                {
+                    path: '/uikit/table2',
+                    name: 'table2',
+                    component: () => import('@/views/uikit/Table2.vue')
                 },
                 {
                     path: '/uikit/list',

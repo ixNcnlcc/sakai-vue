@@ -20,8 +20,5 @@ export default defineConfig({
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
-    },
-    // เพิ่มลิงก์ไปยัง Material Icons
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/icon?family=Material+Icons'
+    }
 });
