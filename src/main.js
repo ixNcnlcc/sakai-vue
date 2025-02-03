@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-
+import Dialog from 'primevue/dialog';
 import Aura from '@primevue/themes/aura';
 import PrimeVue from 'primevue/config';
 import ConfirmationService from 'primevue/confirmationservice';
@@ -14,6 +14,7 @@ document.documentElement.classList.add('app-dark');
 
 const app = createApp(App);
 
+app.component('Dialog', Dialog);
 app.use(router);
 app.use(PrimeVue, {
     theme: {

@@ -154,15 +154,15 @@ function getStatusLabel(status) {
                 :value="products"
                 dataKey="id"
                 :paginator="true"
-                :rows="10"
+                :rows="25"
                 :filters="filters"
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
                 :rowsPerPageOptions="[5, 10, 25]"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
             >
                 <template #header>
-                    <div class="flex flex-wrap gap-2 items-center justify-between">
-                        <h4 class="m-0">Manage Products</h4>
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h4 class="m-0">รายชือบัณฑิต</h4>
                         <IconField>
                             <InputIcon>
                                 <i class="pi pi-search" />
@@ -173,18 +173,18 @@ function getStatusLabel(status) {
                 </template>
 
                 <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
-                <Column field="code" header="Code" sortable style="min-width: 12rem"></Column>
+                <!-- <Column field="code" header="Code" sortable style="min-width: 12rem"></Column> -->
                 <Column field="name" header="Name" sortable style="min-width: 16rem"></Column>
-                <Column header="Image">
+                <!-- <Column header="Image">
                     <template #body="slotProps">
                         <img :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" class="rounded" style="width: 64px" />
                     </template>
-                </Column>
-                <Column field="price" header="Price" sortable style="min-width: 8rem">
+                </Column> -->
+                <!-- <Column field="price" header="Price" sortable style="min-width: 8rem">
                     <template #body="slotProps">
                         {{ formatCurrency(slotProps.data.price) }}
                     </template>
-                </Column>
+                </Column> -->
                 <Column field="category" header="Category" sortable style="min-width: 10rem"></Column>
                 <Column field="rating" header="Reviews" sortable style="min-width: 12rem">
                     <template #body="slotProps">
@@ -207,37 +207,37 @@ function getStatusLabel(status) {
 
         <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Product Details" :modal="true">
             <div class="flex flex-col gap-6">
-                <img v-if="product.image" :src="`https://primefaces.org/cdn/primevue/images/product/${product.image}`" :alt="product.image" class="block m-auto pb-4" />
+                <!-- <img v-if="product.image" :src="`https://primefaces.org/cdn/primevue/images/product/${product.image}`" :alt="product.image" class="block pb-4 m-auto" /> -->
                 <div>
-                    <label for="name" class="block font-bold mb-3">Name</label>
+                    <label for="name" class="block mb-3 font-bold">Name</label>
                     <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" fluid />
                     <small v-if="submitted && !product.name" class="text-red-500">Name is required.</small>
                 </div>
                 <div>
-                    <label for="description" class="block font-bold mb-3">Description</label>
+                    <label for="description" class="block mb-3 font-bold">Description</label>
                     <Textarea id="description" v-model="product.description" required="true" rows="3" cols="20" fluid />
                 </div>
                 <div>
-                    <label for="inventoryStatus" class="block font-bold mb-3">Inventory Status</label>
+                    <label for="inventoryStatus" class="block mb-3 font-bold">Inventory Status</label>
                     <Select id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status" fluid></Select>
                 </div>
 
                 <div>
-                    <span class="block font-bold mb-4">Category</span>
+                    <span class="block mb-4 font-bold">Category</span>
                     <div class="grid grid-cols-12 gap-4">
-                        <div class="flex items-center gap-2 col-span-6">
+                        <div class="flex items-center col-span-6 gap-2">
                             <RadioButton id="category1" v-model="product.category" name="category" value="Accessories" />
                             <label for="category1">Accessories</label>
                         </div>
-                        <div class="flex items-center gap-2 col-span-6">
+                        <div class="flex items-center col-span-6 gap-2">
                             <RadioButton id="category2" v-model="product.category" name="category" value="Clothing" />
                             <label for="category2">Clothing</label>
                         </div>
-                        <div class="flex items-center gap-2 col-span-6">
+                        <div class="flex items-center col-span-6 gap-2">
                             <RadioButton id="category3" v-model="product.category" name="category" value="Electronics" />
                             <label for="category3">Electronics</label>
                         </div>
-                        <div class="flex items-center gap-2 col-span-6">
+                        <div class="flex items-center col-span-6 gap-2">
                             <RadioButton id="category4" v-model="product.category" name="category" value="Fitness" />
                             <label for="category4">Fitness</label>
                         </div>
@@ -246,11 +246,11 @@ function getStatusLabel(status) {
 
                 <div class="grid grid-cols-12 gap-4">
                     <div class="col-span-6">
-                        <label for="price" class="block font-bold mb-3">Price</label>
+                        <label for="price" class="block mb-3 font-bold">Price</label>
                         <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" fluid />
                     </div>
                     <div class="col-span-6">
-                        <label for="quantity" class="block font-bold mb-3">Quantity</label>
+                        <label for="quantity" class="block mb-3 font-bold">Quantity</label>
                         <InputNumber id="quantity" v-model="product.quantity" integeronly fluid />
                     </div>
                 </div>
